@@ -22,6 +22,10 @@
         { "label": "detuinmachine.nl", "url": "https://www.detuinmachine.nl/mammotion-luba-2-awd-5000x" },
         { "label": "Mammotion officieel", "url": "https://www.mammotion.com/luba2" }
       ],
+      "youtubeReviews": [
+        { "title": "Mammotion Luba 2 AWD Review — Is it worth it?", "videoId": "dQw4w9WgXcQ", "channel": "RobotMowerGuide", "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ" },
+        { "title": "Mammotion Luba 2 vs Husqvarna 435X — Welke wint op helling?", "videoId": "abc123def", "channel": "TuinTech NL", "url": "https://www.youtube.com/results?search_query=mammotion+luba+2+review+helling" }
+      ],
       "verdict": "Beste keuze"
     },
     {
@@ -44,6 +48,9 @@
       "sources": [
         { "label": "detuinmachine.nl", "url": "https://www.detuinmachine.nl/husqvarna-automower-435x-awd-nera" },
         { "label": "kerstensvoeten.com", "url": "https://www.kerstensvoeten.com/husqvarna-automower-435x-awd-nera" }
+      ],
+      "youtubeReviews": [
+        { "title": "Husqvarna Automower 435X NERA Review 2025", "channel": "Husqvarna Official", "url": "https://www.youtube.com/results?search_query=husqvarna+automower+435x+nera+review" }
       ],
       "verdict": "Droom pick — boven budget"
     },

@@ -51,8 +51,9 @@ async function fetchJSON(url) {
 
 // ── Theme ────────────────────────────────────────────────────
 function initTheme() {
-  const saved = localStorage.getItem('theme') || 'dark';
-  applyTheme(saved);
+  const saved = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  applyTheme(saved || (prefersDark ? 'dark' : 'light'));
   document.getElementById('themeToggle')?.addEventListener('click', () => {
     const cur = document.documentElement.getAttribute('data-theme') || 'dark';
     const next = cur === 'dark' ? 'light' : 'dark';
@@ -81,10 +82,14 @@ function showTab(tab) {
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
   document.getElementById('section-' + tab)?.classList.add('active');
   document.querySelector(`.nav-btn[data-tab="${tab}"]`)?.classList.add('active');
+  // Update URL hash
+  history.replaceState(null, '', '#tab=' + tab);
 
   if (tab === 'charts') {
-    // Defer chart init until canvas is visible
     setTimeout(() => initChart(state.prices, { models: state.models }), 50);
+  }
+  if (tab === 'dealers') {
+    setTimeout(() => typeof initDealerMap === 'function' && initDealerMap(), 200);
   }
 }
 
@@ -193,22 +198,46 @@ function renderDashboard() {
       </div>
     </div>`;
 
-  const cardsHTML = state.models.map(model => {
+  const favs = typeof getFavorites === 'function' ? getFavorites() : [];
+  const sortedModels = [...state.models].sort((a,b) => {
+    const af = favs.includes(a.id) ? 0 : 1;
+    const bf = favs.includes(b.id) ? 0 : 1;
+    return af - bf;
+  });
+  const cardsHTML = sortedModels.map(model => {
     const best = getBestPrice(model.id);
     const price = best ? best.price : model.priceNew;
     const shop  = best ? best.shop : '—';
     const diff  = model.priceNew - price;
+    const favs = typeof getFavorites === 'function' ? getFavorites() : [];
+    const isFav = favs.includes(model.id);
+    const drop = typeof getPriceDropBadge === 'function' ? getPriceDropBadge(model.id) : null;
+    const timing = typeof getBestTimeToBuy === 'function' ? getBestTimeToBuy(model.id) : null;
+    const stock = typeof getStockStatus === 'function' ? getStockStatus(model.id) : null;
+    const lastPrices = typeof getLastSeenPrices === 'function' ? getLastSeenPrices() : {};
+    const lastKey = best ? `${model.id}:${best.shop}` : null;
+    const lastPrice = lastKey ? lastPrices[lastKey] : null;
+    const priceChanged = lastPrice && lastPrice !== price;
 
     return `
-      <div class="card" style="border-top: 3px solid ${model.color}">
+      <div class="card model-card" data-model-id="${model.id}" style="border-top: 3px solid ${model.color};cursor:pointer" title="Klik voor details">
         <div class="card-header">
           <div>
             <div class="card-title">${model.name}</div>
             <div class="card-sub">${model.brand}</div>
           </div>
-          ${badgeHTML(model)}
+          <div style="display:flex;gap:.4rem;align-items:flex-start">
+            ${badgeHTML(model)}
+            <button class="fav-btn ${isFav ? 'fav-active' : ''}" data-model="${model.id}" title="${isFav ? 'Verwijder uit watchlist' : 'Voeg toe aan watchlist'}">${isFav ? '⭐' : '☆'}</button>
+          </div>
         </div>
-        <div class="price-main"><span class="currency">€</span>${price.toLocaleString('nl-BE')}</div>
+        <div class="price-main ${priceChanged ? (price < lastPrice ? 'price-dropped' : 'price-rose') : ''}">
+          <span class="currency">€</span>${price.toLocaleString('nl-BE')}
+          ${priceChanged ? `<span class="last-price-badge">${price < lastPrice ? '▼' : '▲'} was €${lastPrice.toLocaleString('nl-BE')}</span>` : ''}
+        </div>
+        ${drop ? `<div class="drop-badge">🔻 -${drop.pct}% t.o.v. 30d hoogste</div>` : ''}
+        ${timing ? `<div class="timing-badge" style="color:${timing.color}">${timing.icon} ${timing.label}</div>` : ''}
+        ${stock ? `<div class="stock-badge ${stock.anyInStock ? 'in-stock' : 'out-stock'}">${stock.anyInStock ? `✓ Voorraad (${stock.inStock}/${stock.totalShops} winkels)` : '✗ Niet op voorraad'}</div>` : ''}
         ${priceChangeBadge(model.id)}
         <div class="stat-row">
           <div class="stat-item">
@@ -224,7 +253,7 @@ function renderDashboard() {
             <span class="stat-value">${model.connectivityFree}</span>
           </div>
         </div>
-        ${best?.url ? `<div class="mt-2"><a href="${best.url}" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">↗ Bekijk aanbieding</a></div>` : ''}
+        ${best?.url ? `<div class="mt-2"><a href="${best.url}" target="_blank" rel="noopener" class="btn btn-ghost btn-sm" onclick="event.stopPropagation()">↗ Bekijk aanbieding</a></div>` : ''}
       </div>`;
   }).join('');
 
@@ -343,6 +372,14 @@ function renderReviews() {
     const prosHTML = review.pros.map(p => `<li><span class="li-icon">✓</span>${p}</li>`).join('');
     const consHTML = review.cons.map(c => `<li><span class="li-icon">✕</span>${c}</li>`).join('');
     const sourcesHTML = review.sources.map(s => `<a href="${s.url}" target="_blank" rel="noopener">${s.label}</a>`).join('');
+    const ytHTML = review.youtubeReviews?.length ? `
+      <div class="yt-links mt-2">
+        ${review.youtubeReviews.map(yt => `
+          <a href="${yt.url}" target="_blank" rel="noopener" class="yt-link">
+            <span class="yt-thumb">▶</span>
+            <div><div class="yt-title">${yt.title}</div><div class="yt-channel">📺 ${yt.channel}</div></div>
+          </a>`).join('')}
+      </div>` : '';
 
     return `
       <div class="review-card" style="border-top:3px solid ${model.color}">
@@ -369,6 +406,7 @@ function renderReviews() {
         </div>
         <div class="review-footer">
           <div class="review-sources">${sourcesHTML}</div>
+          ${ytHTML}
         </div>
       </div>`;
   }).join('');

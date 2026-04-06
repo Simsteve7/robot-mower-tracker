@@ -8,8 +8,23 @@
   <link rel="stylesheet" href="css/style.css" />
   <!-- Chart.js CDN -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  <!-- Leaflet.js CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
+
+<!-- ══ Notification Banner ════════════════════════════════════ -->
+<div class="notif-banner" id="notifBanner" style="display:none">
+  <span>🔔 Wil je meldingen ontvangen bij prijsdalingen?</span>
+  <button class="btn btn-primary btn-sm" onclick="requestNotificationPermission()">Ja, activeer</button>
+  <button class="btn btn-ghost btn-sm" onclick="this.closest('.notif-banner').style.display='none';localStorage.setItem('mower-notif-asked',Date.now())">Nee dank je</button>
+</div>
+
+<!-- ══ Price Ticker ═══════════════════════════════════════════ -->
+<div class="price-ticker-wrap" aria-hidden="true">
+  <div class="ticker-inner" id="priceTicker"></div>
+</div>
 
 <!-- ══ Header ══════════════════════════════════════════════════ -->
 <header class="header">
@@ -44,10 +59,21 @@
       <button class="nav-btn" data-tab="secondhand">
         <span class="nav-icon">🔄</span><span>2e Hands</span>
       </button>
+      <button class="nav-btn" data-tab="dealers">
+        <span class="nav-icon">🗺️</span><span>Dealers</span>
+      </button>
+      <button class="nav-btn" data-tab="tco">
+        <span class="nav-icon">💰</span><span>TCO</span>
+      </button>
+      <button class="nav-btn" data-tab="faq">
+        <span class="nav-icon">❓</span><span>FAQ</span>
+      </button>
     </nav>
 
     <div class="header-actions">
       <span class="update-badge" id="lastUpdated"></span>
+      <button class="btn btn-ghost btn-sm" id="shareBtn" title="Deel deze pagina">🔗</button>
+      <button class="btn btn-ghost btn-sm" id="printBtn" title="Exporteer naar PDF">🖨️</button>
       <button class="theme-btn" id="themeToggle" title="Schakel thema">☀️</button>
     </div>
   </div>
@@ -324,11 +350,101 @@
     </div>
   </section>
 
+  <!-- ── 9. Dealers Kaart ──────────────────────────────────── -->
+  <section class="section" id="section-dealers">
+    <div class="section-header">
+      <h1 class="section-title">🗺️ Dealer Kaart</h1>
+      <p class="section-sub">Geautoriseerde dealers in België en Nederland. Klik op een marker voor details.</p>
+    </div>
+    <div class="dealer-legend">
+      <span class="legend-item"><span class="legend-dot" style="background:#3b82f6"></span>Mammotion</span>
+      <span class="legend-item"><span class="legend-dot" style="background:#f59e0b"></span>Husqvarna</span>
+      <span class="legend-item"><span class="legend-dot" style="background:#10b981"></span>Kress</span>
+      <span class="legend-item"><span class="legend-dot" style="background:#8b5cf6"></span>Stiga</span>
+    </div>
+    <div id="dealerMap" style="height:420px;border-radius:12px;overflow:hidden;border:1px solid var(--border)"></div>
+  </section>
+
+  <!-- ── 10. TCO Calculator ─────────────────────────────────── -->
+  <section class="section" id="section-tco">
+    <div class="section-header">
+      <h1 class="section-title">💰 Total Cost of Ownership</h1>
+      <p class="section-sub">Totale kosten over 3 jaar, inclusief aankoop, messen, service en 4G-abonnement.</p>
+    </div>
+    <div id="tcoSection" class="tco-section-grid"></div>
+
+    <!-- Promo Countdown Widget -->
+    <div class="card mt-3 promo-countdown-card">
+      <div class="card-title">⏰ Kress Promo Countdown — Mei 2026</div>
+      <p class="text-muted text-sm mt-1">Verwachte Kress lente-promo (historisch: 33–50% korting)</p>
+      <div id="promoCountdown" class="mt-2"></div>
+      <a href="" id="calendarLink" target="_blank" rel="noopener" class="btn btn-ghost btn-sm mt-2">
+        📅 Voeg herinnering toe aan Google Agenda
+      </a>
+    </div>
+
+    <!-- Specs Accordion -->
+    <div class="section-header mt-3">
+      <h2 class="section-title" style="font-size:1.1rem">🔧 Technische Specificaties</h2>
+    </div>
+    <div id="specsAccordion" class="accordion"></div>
+
+    <!-- Price History Tables -->
+    <div class="section-header mt-3">
+      <h2 class="section-title" style="font-size:1.1rem">📋 Prijshistorie Tabel</h2>
+    </div>
+    <div id="priceHistoryTables"></div>
+  </section>
+
+  <!-- ── 11. FAQ ─────────────────────────────────────────────── -->
+  <section class="section" id="section-faq">
+    <div class="section-header">
+      <h1 class="section-title">❓ Veelgestelde Vragen</h1>
+      <p class="section-sub">Antwoorden op de meestgestelde vragen over robot maaiers voor hellend terrein.</p>
+    </div>
+    <div id="faqList" class="accordion"></div>
+
+    <!-- Changelog -->
+    <div class="section-header mt-3">
+      <h2 class="section-title" style="font-size:1.1rem">📝 Wijzigingslog</h2>
+    </div>
+    <div id="changelogList"></div>
+  </section>
+
 </main>
 
-<!-- ══ Scripts ═════════════════════════════════════════════════ -->
+<!-- ══ Model Detail Modal ═════════════════════════════════════ -->
+<div class="modal-backdrop" id="modelModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModelModal()">✕</button>
+    <div class="modal-scroll" id="modelModalContent"></div>
+  </div>
+</div>
+
+<!-- ══ Keyboard Shortcuts Overlay ════════════════════════════ -->
+<div class="overlay-backdrop" id="shortcutsOverlay">
+  <div class="overlay-box">
+    <div class="overlay-title">⌨️ Toetsenbordsnelkoppelingen</div>
+    <div class="shortcuts-grid">
+      <div class="shortcut-row"><kbd>1</kbd><span>Dashboard</span></div>
+      <div class="shortcut-row"><kbd>2</kbd><span>Prijzen</span></div>
+      <div class="shortcut-row"><kbd>3</kbd><span>Grafieken</span></div>
+      <div class="shortcut-row"><kbd>4</kbd><span>Reviews</span></div>
+      <div class="shortcut-row"><kbd>5</kbd><span>Promos</span></div>
+      <div class="shortcut-row"><kbd>6</kbd><span>Vergelijk</span></div>
+      <div class="shortcut-row"><kbd>7</kbd><span>Advisor</span></div>
+      <div class="shortcut-row"><kbd>8</kbd><span>2e Hands</span></div>
+      <div class="shortcut-row"><kbd>9</kbd><span>Dealers</span></div>
+      <div class="shortcut-row"><kbd>0</kbd><span>FAQ</span></div>
+      <div class="shortcut-row"><kbd>?</kbd><span>Deze overlay</span></div>
+      <div class="shortcut-row"><kbd>Esc</kbd><span>Sluiten</span></div>
+    </div>
+    <button class="btn btn-ghost mt-2" onclick="hideShortcutsOverlay()">Sluiten</button>
+  </div>
+</div>
 <script src="js/charts.js"></script>
 <script src="js/app.js"></script>
+<script src="js/features.js"></script>
 
 </body>
 </html>

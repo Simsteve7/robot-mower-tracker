@@ -1,0 +1,25 @@
+{
+  "entries": [
+    {
+      "date": "2026-04-07",
+      "version": "2.0.0",
+      "changes": [
+        "20 nieuwe features toegevoegd: TCO calculator, dealer kaart, watchlist, prijsticker en meer",
+        "Dark/light mode geheugen via localStorage",
+        "Toetsenbordsnelkoppelingen toegevoegd",
+        "FAQ sectie toegevoegd",
+        "Specificaties accordion per model"
+      ]
+    },
+    {
+      "date": "2026-04-07",
+      "version": "1.0.0",
+      "changes": [
+        "Initiële release met dashboard, prijzen, grafieken, reviews, promos",
+        "Vergelijktabel en advisor toegevoegd",
+        "2e hands sectie met Marktplaats/2dehands links",
+        "Automatische prijsscraper via GitHub Actions"
+      ]
+    }
+  ]
+}

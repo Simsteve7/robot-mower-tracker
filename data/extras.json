@@ -1,0 +1,158 @@
+{
+  "tco": [
+    {
+      "modelId": "mammotion-luba2-5000x",
+      "annualBlades": 40,
+      "annualService": 0,
+      "annual4G": 60,
+      "annual4GFreeYears": 1,
+      "annualOther": 20,
+      "notes4G": "Na 1 jaar gratis: ~€60/jaar 4G abonnement",
+      "notesService": "Geen verplichte dealer service, zelf onderhoud"
+    },
+    {
+      "modelId": "husqvarna-435x-nera",
+      "annualBlades": 60,
+      "annualService": 150,
+      "annual4G": 0,
+      "annual4GFreeYears": 99,
+      "annualOther": 30,
+      "notes4G": "4G inbegrepen in servicecontract",
+      "notesService": "Jaarlijkse dealer service aanbevolen (~€150)"
+    },
+    {
+      "modelId": "kress-kr174e-rtkn",
+      "annualBlades": 50,
+      "annualService": 100,
+      "annual4G": 0,
+      "annual4GFreeYears": 8,
+      "annualOther": 20,
+      "notes4G": "8 jaar gratis 4G inbegrepen",
+      "notesService": "Configuratiewijzigingen via dealer (~€100/jaar)"
+    },
+    {
+      "modelId": "stiga-a3000",
+      "annualBlades": 45,
+      "annualService": 80,
+      "annual4G": 0,
+      "annual4GFreeYears": 999,
+      "annualOther": 20,
+      "notes4G": "Levenslang gratis 4G",
+      "notesService": "Optionele jaarservice via dealer (~€80)"
+    },
+    {
+      "modelId": "segway-navimow-x330e",
+      "annualBlades": 45,
+      "annualService": 0,
+      "annual4G": 72,
+      "annual4GFreeYears": 2,
+      "annualOther": 20,
+      "notes4G": "Na 2 jaar gratis: ~€72/jaar 4G",
+      "notesService": "Zelf onderhoud mogelijk"
+    }
+  ],
+  "specs": [
+    {
+      "modelId": "mammotion-luba2-5000x",
+      "batteryCapacity": "10.4 Ah / 25.2V",
+      "chargingTime": "90 min",
+      "mowingTime": "180 min",
+      "noiseLevel": "58 dB",
+      "weight": "14.8 kg",
+      "ipRating": "IP55",
+      "bladeCount": 3,
+      "cuttingWidth": "26 cm",
+      "cuttingHeight": "30–70 mm",
+      "connectivity": "4G LTE + RTK GPS",
+      "gpsAccuracy": "2.5 cm RTK",
+      "maxSpeed": "1.2 m/s",
+      "dimensions": "695 × 490 × 285 mm"
+    },
+    {
+      "modelId": "husqvarna-435x-nera",
+      "batteryCapacity": "9.4 Ah / 25.6V",
+      "chargingTime": "75 min",
+      "mowingTime": "270 min",
+      "noiseLevel": "60 dB",
+      "weight": "16.0 kg",
+      "ipRating": "IP54",
+      "bladeCount": 3,
+      "cuttingWidth": "24 cm",
+      "cuttingHeight": "20–60 mm",
+      "connectivity": "4G LTE + EPOS GPS",
+      "gpsAccuracy": "3–5 cm",
+      "maxSpeed": "0.9 m/s",
+      "dimensions": "740 × 530 × 300 mm"
+    },
+    {
+      "modelId": "kress-kr174e-rtkn",
+      "batteryCapacity": "12 Ah / 40V",
+      "chargingTime": "120 min",
+      "mowingTime": "240 min",
+      "noiseLevel": "56 dB",
+      "weight": "12.5 kg",
+      "ipRating": "IP55",
+      "bladeCount": 3,
+      "cuttingWidth": "22 cm",
+      "cuttingHeight": "30–60 mm",
+      "connectivity": "4G LTE + RTKn GPS",
+      "gpsAccuracy": "2 cm RTKn",
+      "maxSpeed": "1.0 m/s",
+      "dimensions": "680 × 450 × 275 mm"
+    },
+    {
+      "modelId": "stiga-a3000",
+      "batteryCapacity": "8.0 Ah / 25.2V",
+      "chargingTime": "90 min",
+      "mowingTime": "200 min",
+      "noiseLevel": "55 dB",
+      "weight": "11.8 kg",
+      "ipRating": "IP55",
+      "bladeCount": 3,
+      "cuttingWidth": "20 cm",
+      "cuttingHeight": "20–60 mm",
+      "connectivity": "4G LTE + GPS",
+      "gpsAccuracy": "5–10 cm",
+      "maxSpeed": "0.9 m/s",
+      "dimensions": "660 × 430 × 270 mm"
+    },
+    {
+      "modelId": "segway-navimow-x330e",
+      "batteryCapacity": "10.0 Ah / 25.2V",
+      "chargingTime": "45 min",
+      "mowingTime": "220 min",
+      "noiseLevel": "54 dB",
+      "weight": "12.2 kg",
+      "ipRating": "IP56",
+      "bladeCount": 3,
+      "cuttingWidth": "22 cm",
+      "cuttingHeight": "30–70 mm",
+      "connectivity": "4G LTE + EFLS GPS",
+      "gpsAccuracy": "3 cm",
+      "maxSpeed": "1.1 m/s",
+      "dimensions": "670 × 455 × 280 mm"
+    }
+  ],
+  "faq": [
+    {
+      "question": "Heb ik een draad nodig?",
+      "answer": "Nee! Alle modellen in deze vergelijking (Mammotion, Husqvarna 435X, Kress RTKn, Stiga A3000, Segway Navimow) gebruiken GPS/RTK technologie. Geen begrenzingsdraad nodig. De robot leert de grenzen van uw tuin via GPS-coördinaten die u instelt via de app."
+    },
+    {
+      "question": "Wat kost 4G na de gratis periode?",
+      "answer": "Mammotion: na 1 jaar ~€5–7/maand (€60–84/jaar). Kress: 8 jaar gratis, daarna onbekend. Stiga: levenslang gratis. Segway: 2 jaar gratis, daarna ~€6/maand. Husqvarna: inbegrepen. Let op: zonder 4G werkt de app-bediening niet op afstand, maar de maaier zelf blijft functioneren via opgeslagen kaart."
+    },
+    {
+      "question": "Is 40% hellingsgrens (Kress) genoeg voor mijn tuin?",
+      "answer": "40% helling = een stijging van 40cm per meter horizontale afstand. Dit is steil (vergelijkbaar met een lastige roltrap). Voor de meeste tuinen voldoende, maar als uw steilste punt boven 40% zit (wat voor Steve's tuin van 45% het geval is), kunt u beter kiezen voor Mammotion (80%), Husqvarna (70%) of Stiga/Segway (50%). De Kress zou op de steilste stukken vastlopen of stoppen."
+    },
+    {
+      "question": "Mammotion vs Husqvarna: betrouwbaarheid?",
+      "answer": "Husqvarna wint op betrouwbaarheid en dealers: 40+ jaar ervaring, uitstekend servicepark. Mammotion is jonger (opgericht 2021) maar groeit snel en is populair in NL/BE. Nadeel Mammotion: kleinere service netwerk, soms traag bij garantieclaims. Voordeel: lagere prijs, 4WD voor extreme hellingen. Als u kiest voor Mammotion, koop dan bij een Nederlandse dealer (greentools.be, detuinmachine.nl) voor lokale support."
+    },
+    {
+      "question": "Kan ik het zelf installeren?",
+      "answer": "Mammotion, Stiga en Segway: ja, volledig zelf via app. U rijdt de grenzen handmatig in of tekent ze op de kaart. Husqvarna en Kress vereisen dealer-installatie voor de eerste setup (RTK basisstation plaatsen, grenzen programmeren). Dit kost extra €200–€400 installatie. Let op: bij Kress vereist ook elke toekomstige configuratiewijziging (extra zone, andere grens) een dealerbezoek."
+    }
+  ]
+}

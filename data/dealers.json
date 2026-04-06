@@ -1,0 +1,94 @@
+{
+  "dealers": [
+    {
+      "id": "greentools-kampenhout",
+      "name": "Greentools.be",
+      "address": "Mechelsesteenweg 232, 1910 Kampenhout",
+      "country": "BE",
+      "lat": 50.9490,
+      "lng": 4.5670,
+      "brands": ["Mammotion"],
+      "url": "https://www.greentools.be",
+      "phone": "+32 16 65 47 00",
+      "type": "dealer"
+    },
+    {
+      "id": "alrobo-be",
+      "name": "AlRobo.be",
+      "address": "België",
+      "country": "BE",
+      "lat": 50.8503,
+      "lng": 4.3517,
+      "brands": ["Mammotion", "Segway"],
+      "url": "https://www.alrobo.be",
+      "type": "webshop"
+    },
+    {
+      "id": "hdstuinmachines",
+      "name": "HDS Tuinmachines",
+      "address": "Nederland",
+      "country": "NL",
+      "lat": 52.3702,
+      "lng": 4.8952,
+      "brands": ["Mammotion"],
+      "url": "https://www.hdstuinmachines.nl",
+      "type": "webshop"
+    },
+    {
+      "id": "detuinmachine",
+      "name": "deTuinmachine.nl",
+      "address": "Venrayseweg 121, 5961 NB Horst",
+      "country": "NL",
+      "lat": 51.4466,
+      "lng": 6.0656,
+      "brands": ["Mammotion", "Husqvarna"],
+      "url": "https://www.detuinmachine.nl",
+      "phone": "+31 77 398 7500",
+      "type": "dealer"
+    },
+    {
+      "id": "kerstensvoeten",
+      "name": "Kerstens & Voeten",
+      "address": "Kooikersweg 2, 5223 KB 's-Hertogenbosch",
+      "country": "NL",
+      "lat": 51.6978,
+      "lng": 5.2789,
+      "brands": ["Husqvarna"],
+      "url": "https://www.kerstensvoeten.com",
+      "type": "dealer"
+    },
+    {
+      "id": "husqvarna-dealer-antwerp",
+      "name": "Husqvarna Dealer Antwerpen",
+      "address": "Antwerpen, België",
+      "country": "BE",
+      "lat": 51.2194,
+      "lng": 4.4025,
+      "brands": ["Husqvarna"],
+      "url": "https://www.husqvarna.com/nl/dealer-locator/",
+      "type": "dealer"
+    },
+    {
+      "id": "kress-dealer-gent",
+      "name": "Kress Dealer Regio Gent",
+      "address": "Gent, België",
+      "country": "BE",
+      "lat": 51.0543,
+      "lng": 3.7174,
+      "brands": ["Kress"],
+      "url": "https://www.kress.com/dealer-locator",
+      "type": "dealer"
+    },
+    {
+      "id": "stiga-dealer-nl",
+      "name": "Stiga Dealer Nederland",
+      "address": "Utrecht, Nederland",
+      "country": "NL",
+      "lat": 52.0907,
+      "lng": 5.1214,
+      "brands": ["Stiga"],
+      "url": "https://www.stigagroup.com/nl/dealers",
+      "type": "dealer"
+    }
+  ]
+}
