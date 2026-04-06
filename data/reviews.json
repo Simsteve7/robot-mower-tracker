@@ -1,0 +1,118 @@
+{
+  "reviews": [
+    {
+      "modelId": "mammotion-luba2-5000x",
+      "score": 8.7,
+      "scoreLabel": "Uitstekend",
+      "summary": "De Mammotion Luba 2 AWD 5000X is de beste keuze voor sterk hellend terrein binnen een budget van €3.000. Met 4WD aandrijving en een maximale hellingshoek van 80% is hij uniek in zijn klasse. Zelf te installeren zonder dealer.",
+      "pros": [
+        "AWD 4WD aandrijving — beste hellingsklasse (80%)",
+        "Geen draad nodig — RTK GPS technologie",
+        "Zelf te installeren, geen dealer vereist",
+        "Binnen budget van €3.000 (nieuw €2.499–€2.999)",
+        "5000m² capaciteit — ruim voldoende voor 3500m²"
+      ],
+      "cons": [
+        "Slechts 1 jaar gratis 4G, daarna abonnement",
+        "Jong merk met kleinere service netwerk in BE/NL",
+        "Firmware updates soms instabiel",
+        "Klantenservice kan traag reageren"
+      ],
+      "sources": [
+        { "label": "detuinmachine.nl", "url": "https://www.detuinmachine.nl/mammotion-luba-2-awd-5000x" },
+        { "label": "Mammotion officieel", "url": "https://www.mammotion.com/luba2" }
+      ],
+      "verdict": "Beste keuze"
+    },
+    {
+      "modelId": "husqvarna-435x-nera",
+      "score": 9.2,
+      "scoreLabel": "Uitmuntend",
+      "summary": "De Husqvarna 435X AWD NERA is technisch de beste robotmaaier op de markt. Het uitstekende dealernetwerk en betrouwbaarheid maken hem ideaal — maar de prijs van ~€5.999 ligt ver boven budget.",
+      "pros": [
+        "Betrouwbaarste merk met beste dealernetwerk BE/NL",
+        "70% helling met echt AWD systeem",
+        "Volwassen EPOS platform — al jarenlang bewezen",
+        "Uitstekende naservice en garantieafhandeling"
+      ],
+      "cons": [
+        "€5.999 — ver boven het budget van €3.000",
+        "Dealer installatie verplicht (extra kosten)",
+        "Duurste optie in vergelijking",
+        "Configuratiewijzigingen vereisen dealerbezoek"
+      ],
+      "sources": [
+        { "label": "detuinmachine.nl", "url": "https://www.detuinmachine.nl/husqvarna-automower-435x-awd-nera" },
+        { "label": "kerstensvoeten.com", "url": "https://www.kerstensvoeten.com/husqvarna-automower-435x-awd-nera" }
+      ],
+      "verdict": "Droom pick — boven budget"
+    },
+    {
+      "modelId": "kress-kr174e-rtkn",
+      "score": 7.8,
+      "scoreLabel": "Goed",
+      "summary": "De Kress KR174E RTKn biedt unieke 8 jaar gratis 4G en een mooie rechte maaipatroon. Helaas vereist elke configuratiewijziging een dealerbezoek, en de prijs is normaal boven budget.",
+      "pros": [
+        "8 jaar gratis 4G — uniek in de markt",
+        "RTKn technologie — geen extra antenne nodig",
+        "Prachtig recht maaipatroon",
+        "Zeer betrouwbaar volgens dealers"
+      ],
+      "cons": [
+        "Dealer installatie verplicht voor elke configuratiewijziging",
+        "Prijs voor 3000m²+ model overschrijdt €3.000 budget",
+        "Relatief nieuw merk met beperkte reviews",
+        "40% maximale helling — onvoldoende voor steile hellingen"
+      ],
+      "sources": [
+        { "label": "Kress officieel", "url": "https://www.kress.com/kr174e-rtkn" }
+      ],
+      "verdict": "Interessant bij promo"
+    },
+    {
+      "modelId": "stiga-a3000",
+      "score": 7.4,
+      "scoreLabel": "Goed",
+      "summary": "De Stiga A 3000 heeft levenslang gratis 4G als uniek voordeel en is van een gevestigd merk. Normaal €3.999, maar bij promoties (€2.700–€2.800) past hij in het budget.",
+      "pros": [
+        "Levenslang gratis 4G — uniek voordeel",
+        "Gevestigd merk met dealernetwerk",
+        "50% helling — voldoende voor de meeste tuinen",
+        "Zelf te installeren"
+      ],
+      "cons": [
+        "Reguliere prijs €3.999 — boven budget",
+        "Alleen bij promoties (€2.700–€2.800) binnen budget",
+        "Gemengde app beoordelingen",
+        "3000m² capaciteit — net voldoende voor 3500m²"
+      ],
+      "sources": [
+        { "label": "Stiga officieel", "url": "https://www.stiga.com/a-3000" }
+      ],
+      "verdict": "Goed bij promo"
+    },
+    {
+      "modelId": "segway-navimow-x330e",
+      "score": 7.5,
+      "scoreLabel": "Goed",
+      "summary": "De Segway Navimow X330E valt op met uitstekende hindernisdetectie via 360° camera en snelladen. De prijs van €3.799 ligt echter boven het budget.",
+      "pros": [
+        "Uitstekende hindernisdetectie via 300° camera",
+        "2x sneller laden dan concurrenten",
+        "50% helling — geschikt voor de meeste hellingen",
+        "Zelf te installeren",
+        "Stil (54–58 dB)"
+      ],
+      "cons": [
+        "€3.799 — boven het budget van €3.000",
+        "Slechts 2 jaar gratis 4G, onduidelijk daarna",
+        "Relatief nieuw merk met beperkte service",
+        "3300m² net aan de grens voor 3500m² tuin"
+      ],
+      "sources": [
+        { "label": "Segway officieel", "url": "https://www.segway.com/navimow-x330e" }
+      ],
+      "verdict": "Interessante optie"
+    }
+  ]
+}

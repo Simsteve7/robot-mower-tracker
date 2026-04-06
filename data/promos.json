@@ -1,0 +1,56 @@
+{
+  "promos": [
+    {
+      "id": "kress-spring-2025",
+      "brand": "Kress",
+      "modelId": "kress-kr174e-rtkn",
+      "title": "Kress Lente Promo 2025",
+      "discount": 33,
+      "discountType": "percent",
+      "period": "Mei – Juli 2025",
+      "startDate": "2025-05-01",
+      "endDate": "2025-07-31",
+      "status": "past",
+      "notes": "~33% korting op alle RTKn modellen. Werd breed uitgemeten bij Kress dealers."
+    },
+    {
+      "id": "kress-autumn-2025",
+      "brand": "Kress",
+      "modelId": "kress-kr174e-rtkn",
+      "title": "Kress Herfst/Winter Promo 2025",
+      "discount": 50,
+      "discountType": "percent",
+      "period": "September – December 2025",
+      "startDate": "2025-09-01",
+      "endDate": "2025-12-31",
+      "status": "past",
+      "notes": "Tot 50% korting — beste korting ooit gezien op Kress RTKn modellen."
+    },
+    {
+      "id": "kress-spring-2026",
+      "brand": "Kress",
+      "modelId": "kress-kr174e-rtkn",
+      "title": "Kress Lente Promo 2026 (verwacht)",
+      "discount": 33,
+      "discountType": "percent",
+      "period": "Mei – Juli 2026",
+      "startDate": "2026-05-01",
+      "endDate": "2026-07-31",
+      "status": "upcoming",
+      "notes": "Verwachte korting op basis van patroon uit 2025. Volg Kress dealers voor bevestiging."
+    },
+    {
+      "id": "kress-autumn-2026",
+      "brand": "Kress",
+      "modelId": "kress-kr174e-rtkn",
+      "title": "Kress Herfst Promo 2026 (verwacht)",
+      "discount": 50,
+      "discountType": "percent",
+      "period": "September – December 2026",
+      "startDate": "2026-09-01",
+      "endDate": "2026-12-31",
+      "status": "upcoming",
+      "notes": "Verwachte korting op basis van patroon uit 2025. Mogelijk de beste koopmogelijkheid."
+    }
+  ]
+}

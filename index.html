@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="nl" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🤖 Robot Maaier Tracker — Steve's Vergelijker</title>
+  <meta name="description" content="Volg prijzen van robot maaiers voor hellend terrein. Mammotion, Husqvarna, Kress, Stiga, Segway." />
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+<!-- ══ Header ══════════════════════════════════════════════════ -->
+<header class="header">
+  <div class="header-inner">
+    <a class="logo" href="#">
+      <span class="logo-icon">🤖</span>
+      <span>Robot Maaier Tracker</span>
+    </a>
+
+    <nav class="nav" role="navigation" aria-label="Hoofdnavigatie">
+      <button class="nav-btn" data-tab="dashboard">
+        <span class="nav-icon">📊</span><span>Dashboard</span>
+      </button>
+      <button class="nav-btn" data-tab="prices">
+        <span class="nav-icon">💶</span><span>Prijzen</span>
+      </button>
+      <button class="nav-btn" data-tab="charts">
+        <span class="nav-icon">📈</span><span>Grafieken</span>
+      </button>
+      <button class="nav-btn" data-tab="reviews">
+        <span class="nav-icon">⭐</span><span>Reviews</span>
+      </button>
+      <button class="nav-btn" data-tab="promos">
+        <span class="nav-icon">🔔</span><span>Promos</span>
+      </button>
+      <button class="nav-btn" data-tab="compare">
+        <span class="nav-icon">⚖️</span><span>Vergelijk</span>
+      </button>
+      <button class="nav-btn" data-tab="recommender">
+        <span class="nav-icon">🧭</span><span>Advisor</span>
+      </button>
+      <button class="nav-btn" data-tab="secondhand">
+        <span class="nav-icon">🔄</span><span>2e Hands</span>
+      </button>
+    </nav>
+
+    <div class="header-actions">
+      <span class="update-badge" id="lastUpdated"></span>
+      <button class="theme-btn" id="themeToggle" title="Schakel thema">☀️</button>
+    </div>
+  </div>
+</header>
+
+<!-- ══ Main ════════════════════════════════════════════════════ -->
+<main class="main">
+
+  <!-- ── 1. Dashboard ──────────────────────────────────────── -->
+  <section class="section" id="section-dashboard">
+    <div class="section-header">
+      <h1 class="section-title">📊 Dashboard</h1>
+      <p class="section-sub">Overzicht van alle robot maaier prijzen — 3.500m² tuin met steile hellingen</p>
+    </div>
+    <div id="dashboardCards"></div>
+  </section>
+
+  <!-- ── 2. Prijzen ────────────────────────────────────────── -->
+  <section class="section" id="section-prices">
+    <div class="section-header">
+      <h1 class="section-title">💶 Prijzen per Winkel</h1>
+      <p class="section-sub">Huidige prijzen bij alle gevolgde webshops. ⭐ = goedkoopste.</p>
+    </div>
+    <div id="pricesTable"></div>
+  </section>
+
+  <!-- ── 3. Grafieken ──────────────────────────────────────── -->
+  <section class="section" id="section-charts">
+    <div class="section-header">
+      <h1 class="section-title">📈 Prijsgeschiedenis</h1>
+      <p class="section-sub">Beste prijs per model door de tijd. Klik op een model om te verbergen.</p>
+    </div>
+    <div class="charts-controls" id="chartToggles"></div>
+    <div class="chart-container">
+      <canvas id="priceChart"></canvas>
+    </div>
+    <p class="text-muted text-sm mt-2">
+      Prijzen worden dagelijks bijgewerkt via automatische scraper. Historie wordt 90 dagen bewaard.
+    </p>
+  </section>
+
+  <!-- ── 4. Reviews ────────────────────────────────────────── -->
+  <section class="section" id="section-reviews">
+    <div class="section-header">
+      <h1 class="section-title">⭐ Reviews & Analyse</h1>
+      <p class="section-sub">Uitgebreide pro/contra analyse op basis van uitgebreid marktonderzoek.</p>
+    </div>
+    <div class="reviews-grid" id="reviewsGrid"></div>
+  </section>
+
+  <!-- ── 5. Promos ─────────────────────────────────────────── -->
+  <section class="section" id="section-promos">
+    <div class="section-header">
+      <h1 class="section-title">🔔 Promos & Seizoensaanbiedingen</h1>
+      <p class="section-sub">Historische en verwachte promoties. Kress doet traditioneel lente (mei) en herfst (sept) promos.</p>
+    </div>
+    <div class="promo-list" id="promosList"></div>
+    <div class="card mt-3" style="border-color:var(--amber)">
+      <div class="card-title">⚠️ Promo Strategie Tip</div>
+      <p class="text-muted text-sm mt-1">
+        Op basis van historische data (2025): Kress geeft <strong>~33% korting in mei–juli</strong>
+        en <strong>tot 50% korting in sept–dec</strong>.
+        De KR174E RTKn (normaal €3.599) zou bij 33% korting uitkomen op <strong>≈€2.411</strong>
+        en bij 50% op <strong>≈€1.800</strong> — beiden ruim binnen budget.
+        Volg je lokale Kress dealer actief in de aanloop naar mei 2026.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── 6. Vergelijk ──────────────────────────────────────── -->
+  <section class="section" id="section-compare">
+    <div class="section-header">
+      <h1 class="section-title">⚖️ Modellen Vergelijken</h1>
+      <p class="section-sub">Klik op een kolomkop om te sorteren. Groen = beste keuze voor uw situatie.</p>
+    </div>
+    <div id="compareTable"></div>
+
+    <!-- Feature vergelijking detail -->
+    <div class="mt-3">
+      <h2 class="section-title" style="font-size:1.1rem">🔍 Gedetailleerde features</h2>
+      <div class="table-wrap mt-2">
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th style="color:#3b82f6">Mammotion</th>
+              <th style="color:#f59e0b">Husqvarna</th>
+              <th style="color:#10b981">Kress</th>
+              <th style="color:#8b5cf6">Stiga</th>
+              <th style="color:#ef4444">Segway</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Max. oppervlakte</td>
+              <td>5.000m²</td><td>3.500m²</td><td>4.000m²</td><td>3.000m²</td><td>3.300m²</td>
+            </tr>
+            <tr>
+              <td>Max. helling</td>
+              <td class="cell-best">80%</td><td>70%</td><td>40%</td><td>50%</td><td>50%</td>
+            </tr>
+            <tr>
+              <td>Aandrijving</td>
+              <td class="cell-best">4WD AWD</td><td>AWD</td><td>2WD</td><td>2WD</td><td>2WD</td>
+            </tr>
+            <tr>
+              <td>Draad nodig</td>
+              <td><span class="icon-yes">✓ Nee</span></td>
+              <td><span class="icon-yes">✓ Nee</span></td>
+              <td><span class="icon-yes">✓ Nee</span></td>
+              <td><span class="icon-yes">✓ Nee</span></td>
+              <td><span class="icon-yes">✓ Nee</span></td>
+            </tr>
+            <tr>
+              <td>Zelf installeren</td>
+              <td><span class="icon-yes">✓</span></td>
+              <td><span class="icon-no">✗ Dealer</span></td>
+              <td><span class="icon-no">✗ Dealer</span></td>
+              <td><span class="icon-yes">✓</span></td>
+              <td><span class="icon-yes">✓</span></td>
+            </tr>
+            <tr>
+              <td>Gratis 4G</td>
+              <td>1 jaar</td>
+              <td>Inbegrepen</td>
+              <td class="cell-best">8 jaar</td>
+              <td class="cell-best">Levenslang</td>
+              <td>2 jaar</td>
+            </tr>
+            <tr>
+              <td>Nieuwe prijs</td>
+              <td class="cell-best">v.a. €2.499</td>
+              <td class="cell-high">€4.138</td>
+              <td>€3.599</td>
+              <td>€3.200</td>
+              <td>€3.799</td>
+            </tr>
+            <tr>
+              <td>Binnen €3k budget</td>
+              <td><span class="icon-yes">✓</span></td>
+              <td><span class="icon-no">✗</span></td>
+              <td><span class="icon-partial">⚠ Promo</span></td>
+              <td><span class="icon-partial">⚠ Promo</span></td>
+              <td><span class="icon-no">✗</span></td>
+            </tr>
+            <tr>
+              <td>Merk reputatie</td>
+              <td>Jong / groeiend</td>
+              <td class="cell-best">Beste in klasse</td>
+              <td>Goed (dealers)</td>
+              <td>Gevestigd</td>
+              <td>Nieuw / groeiend</td>
+            </tr>
+            <tr>
+              <td>Hindernisdetectie</td>
+              <td>Camera + RTK</td>
+              <td>EPOS + Camera</td>
+              <td>RTKn GPS</td>
+              <td>Camera + RTK</td>
+              <td class="cell-best">300° Camera</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 7. Advisor ────────────────────────────────────────── -->
+  <section class="section" id="section-recommender">
+    <div class="section-header">
+      <h1 class="section-title">🧭 Robot Maaier Advisor</h1>
+      <p class="section-sub">Vul uw situatie in en krijg een persoonlijke aanbeveling.</p>
+    </div>
+    <div class="recommender-wrap">
+      <div class="recommender-form">
+        <div class="form-title">Uw situatie</div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="rec-area">Oppervlakte (m²)</label>
+            <input class="form-input" type="number" id="rec-area" value="3500" min="100" max="10000" />
+            <div class="form-hint">Aanbevolen: 20% buffer</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="rec-slope">Max. helling (%)</label>
+            <input class="form-input" type="number" id="rec-slope" value="45" min="0" max="100" />
+            <div class="form-hint">Steile helling = &gt;40%</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="rec-budget">Budget (€)</label>
+          <input class="form-input" type="number" id="rec-budget" value="3000" min="500" max="10000" />
+          <div class="form-hint">Inclusief installatie indien dealer vereist</div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="rec-install">Installatie voorkeur</label>
+            <select class="form-select" id="rec-install">
+              <option value="self">Zelf installeren</option>
+              <option value="dealer">Dealer mag ook</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="rec-4g">4G connectiviteit</label>
+            <select class="form-select" id="rec-4g">
+              <option value="yes">Ja, gewenst</option>
+              <option value="free">Gratis lang gewenst</option>
+              <option value="no">Niet belangrijk</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" id="recommendBtn" style="width:100%;justify-content:center;padding:.75rem">
+          🧭 Geef aanbeveling
+        </button>
+
+        <hr class="divider" />
+        <div style="font-size:.75rem;color:var(--text-3);line-height:1.6">
+          <strong style="color:var(--text-2)">Uw situatie (Steve):</strong><br>
+          Tuin: 3.500m² · Max. helling: ~45% · Budget: €3.000 · Zelf installeren · 4G gewenst
+        </div>
+      </div>
+
+      <div class="recommender-result" id="recommenderResult">
+        <div class="result-placeholder">
+          <div class="result-placeholder-icon">🧭</div>
+          <div>Vul uw situatie in en klik op "Geef aanbeveling"</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 8. Tweedehands ─────────────────────────────────────── -->
+  <section class="section" id="section-secondhand">
+    <div class="section-header">
+      <h1 class="section-title">🔄 2e Hands Aanbiedingen</h1>
+      <p class="section-sub">Gevonden via Marktplaats.nl en 2dehands.be. Automatisch bijgehouden via dagelijkse scraper.</p>
+    </div>
+    <div id="secondhandGrid">
+      <div style="text-align:center;padding:2rem;color:var(--text-3)">Laden...</div>
+    </div>
+
+    <!-- Secondhand tips -->
+    <div class="cards-grid mt-3">
+      <div class="card">
+        <div class="card-title">💡 Kooptips 2e hands</div>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.82rem;color:var(--text-2);line-height:1.8">
+          <li>Controleer of de 4G-abonnementsperiode overdraagbaar is</li>
+          <li>Vraag naar de firmware versie (recent = beter)</li>
+          <li>Showroommodellen hebben zelden echt gereden — zo goed als nieuw</li>
+          <li>Dealer-verkoop = meestal te tracen servicehistorie</li>
+          <li>Vraag naar Mammotion account overdracht procedure</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title">🔎 Zoek zelf op</div>
+        <div style="margin-top:.75rem;display:flex;flex-direction:column;gap:.5rem">
+          <a href="https://www.marktplaats.nl/q/mammotion+luba/" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">
+            ↗ Marktplaats.nl — Mammotion Luba
+          </a>
+          <a href="https://www.marktplaats.nl/q/husqvarna+automower+435/" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">
+            ↗ Marktplaats.nl — Husqvarna 435X
+          </a>
+          <a href="https://www.2dehands.be/q/mammotion/" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">
+            ↗ 2dehands.be — Mammotion
+          </a>
+          <a href="https://www.2dehands.be/q/robotmaaier/" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">
+            ↗ 2dehands.be — Robotmaaier
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══ Scripts ═════════════════════════════════════════════════ -->
+<script src="js/charts.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>

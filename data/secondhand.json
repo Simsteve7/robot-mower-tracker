@@ -1,0 +1,39 @@
+{
+  "lastUpdated": "2026-04-07T00:00:00Z",
+  "listings": [
+    {
+      "id": "marktplaats-luba2-5000x-pro",
+      "modelId": "mammotion-luba2-5000x",
+      "title": "Mammotion Luba 2 AWD 5000X PRO — showroommodel",
+      "price": 2099,
+      "condition": "Showroom / zo goed als nieuw",
+      "seller": "Dealer",
+      "platform": "Marktplaats.nl",
+      "location": "Nederland",
+      "url": "https://www.marktplaats.nl/",
+      "dateAdded": "2026-04-01",
+      "dateExpires": null,
+      "warranty": null,
+      "notes": "Showroommodel, zo goed als nieuw. Dealer verkoop.",
+      "active": true,
+      "savingsVsNew": 900
+    },
+    {
+      "id": "2dehands-luba2-5000x-2025",
+      "modelId": "mammotion-luba2-5000x",
+      "title": "Mammotion Luba 2 AWD 5000X — model 2025 met 2 jaar garantie",
+      "price": 2400,
+      "condition": "Gebruikt / Zeer goed",
+      "seller": "Particulier",
+      "platform": "2dehands.be",
+      "location": "België",
+      "url": "https://www.2dehands.be/",
+      "dateAdded": "2026-04-03",
+      "dateExpires": null,
+      "warranty": "2 jaar resterende fabrieksgarantie",
+      "notes": "Model 2025 met 2 jaar garantie. Goede staat.",
+      "active": true,
+      "savingsVsNew": 599
+    }
+  ]
+}
