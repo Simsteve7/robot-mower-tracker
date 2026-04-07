@@ -58,16 +58,6 @@ TARGETS = [
     },
     {
         "modelId": "mammotion-luba2-5000x",
-        "shop": "greentools.be",
-        "url": "https://www.greentools.be/mammotion-luba-2-awd-5000x/",
-        "selectors": [
-            ".product-promo-price",
-            ".product-price:not(.strikethrough)",
-        ],
-        "min_price": 1000,  # accessoires/bundles op pagina, product zelf >€1000
-    },
-    {
-        "modelId": "mammotion-luba2-5000x",
         "shop": "hdstuinmachines.nl",
         "url": "https://www.hdstuinmachines.nl/mammotion-luba-2-awd-5000x/",
         "selectors": [
