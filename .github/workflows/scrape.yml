@@ -50,27 +50,7 @@ jobs:
           GMAIL_USER:        ${{ secrets.GMAIL_USER }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           ALERT_EMAIL:       ${{ secrets.ALERT_EMAIL }}
-        run: |
-          ALERT_CONTENT=$(cat data/alerts_triggered.json)
-          SUBJECT="🤖 Robot Maaier Prijsalert!"
-          BODY="Prijsdalingen gedetecteerd:\n\n${ALERT_CONTENT}\n\nBekijk: https://simsteve7.github.io/robot-mower-tracker"
-
-          # Send via Gmail SMTP using curl
-          curl --ssl-reqd \
-            --url "smtps://smtp.gmail.com:465" \
-            --user "${GMAIL_USER}:${GMAIL_APP_PASSWORD}" \
-            --mail-from "${GMAIL_USER}" \
-            --mail-rcpt "${ALERT_EMAIL}" \
-            --upload-file - <<EOF
-          From: Robot Maaier Tracker <${GMAIL_USER}>
-          To: ${ALERT_EMAIL}
-          Subject: ${SUBJECT}
-          Content-Type: text/plain; charset=utf-8
-
-          ${BODY}
-          EOF
-
-          echo "Alert email sent to ${ALERT_EMAIL}"
+        run: python scripts/send_alert_email.py
 
       - name: Commit updated data
         run: |
