@@ -1,0 +1,89 @@
+name: Daily Price Scrape
+
+on:
+  schedule:
+    - cron: '0 7 * * *'   # Daily at 07:00 UTC
+  workflow_dispatch:        # Manual trigger
+
+permissions:
+  contents: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          pip install requests beautifulsoup4
+
+      - name: Scrape prices
+        run: python scripts/scrape_prices.py
+
+      - name: Scrape secondhand listings
+        run: python scripts/scrape_secondhand.py
+
+      - name: Check for price alerts
+        id: alerts
+        run: |
+          if [ -f data/alerts_triggered.json ]; then
+            echo "ALERTS_TRIGGERED=true" >> $GITHUB_OUTPUT
+            echo "Alert file contents:"
+            cat data/alerts_triggered.json
+          else
+            echo "ALERTS_TRIGGERED=false" >> $GITHUB_OUTPUT
+            echo "No price alerts triggered."
+          fi
+
+      - name: Send email alert (if price drop)
+        if: steps.alerts.outputs.ALERTS_TRIGGERED == 'true'
+        env:
+          GMAIL_USER:        ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          ALERT_EMAIL:       ${{ secrets.ALERT_EMAIL }}
+        run: |
+          ALERT_CONTENT=$(cat data/alerts_triggered.json)
+          SUBJECT="🤖 Robot Maaier Prijsalert!"
+          BODY="Prijsdalingen gedetecteerd:\n\n${ALERT_CONTENT}\n\nBekijk: https://simsteve7.github.io/robot-mower-tracker"
+
+          # Send via Gmail SMTP using curl
+          curl --ssl-reqd \
+            --url "smtps://smtp.gmail.com:465" \
+            --user "${GMAIL_USER}:${GMAIL_APP_PASSWORD}" \
+            --mail-from "${GMAIL_USER}" \
+            --mail-rcpt "${ALERT_EMAIL}" \
+            --upload-file - <<EOF
+          From: Robot Maaier Tracker <${GMAIL_USER}>
+          To: ${ALERT_EMAIL}
+          Subject: ${SUBJECT}
+          Content-Type: text/plain; charset=utf-8
+
+          ${BODY}
+          EOF
+
+          echo "Alert email sent to ${ALERT_EMAIL}"
+
+      - name: Commit updated data
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/prices.json data/secondhand.json
+          # Only commit if there are changes
+          if ! git diff --staged --quiet; then
+            TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M UTC")
+            git commit -m "chore: update prices ${TIMESTAMP} [skip ci]"
+            git push
+            echo "Data committed and pushed."
+          else
+            echo "No data changes to commit."
+          fi
