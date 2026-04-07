@@ -47,6 +47,16 @@ RETRY_DELAY = 5
 TARGETS = [
     {
         "modelId": "mammotion-luba2-5000x",
+        "shop": "greentools.be",
+        "url": "https://www.greentools.be/nl/2-webshop/detail/7130-robotmaaier-mammotion-luba2-awd-5000-x",
+        "selectors": [
+            ".product-promo-price",
+            ".product-price:not(.strikethrough)",
+        ],
+        "min_price": 1500,
+    },
+    {
+        "modelId": "mammotion-luba2-5000x",
         "shop": "detuinmachine.nl",
         "url": "https://www.detuinmachine.nl/mammotion-luba-2-awd-5000x/",
         "selectors": [
@@ -85,6 +95,16 @@ TARGETS = [
             ".product-price",
             ".woocommerce-Price-amount"
         ]
+    },
+    {
+        "modelId": "mammotion-luba3-5000",
+        "shop": "greentools.be",
+        "url": "https://www.greentools.be/nl/2-webshop/detail/7158-robotmaaier-mammotion-luba3-awd-5000",
+        "selectors": [
+            ".product-promo-price",
+            ".product-price:not(.strikethrough)",
+        ],
+        "min_price": 1500,
     },
 ]
 

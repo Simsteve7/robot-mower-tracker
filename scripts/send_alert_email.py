@@ -20,6 +20,7 @@ DASHBOARD_URL = "https://simsteve7.github.io/robot-mower-tracker"
 
 MODEL_NAMES = {
     "mammotion-luba2-5000x": "Mammotion Luba 2 AWD 5000X",
+    "mammotion-luba3-5000": "Mammotion Luba 3 AWD 5000",
     "husqvarna-435x-nera": "Husqvarna Automower 435X AWD NERA",
     "kress-kr174e": "Kress KR174E RTKn",
     "stiga-a3000": "Stiga A 3000",
