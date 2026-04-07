@@ -35,6 +35,10 @@
     </a>
 
     <nav class="nav" role="navigation" aria-label="Hoofdnavigatie">
+      <button class="hamburger" id="hamburgerBtn" aria-label="Menu openen" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-items" id="navItems">
       <button class="nav-btn" data-tab="dashboard">
         <span class="nav-icon">📊</span><span>Dashboard</span>
       </button>
@@ -68,6 +72,7 @@
       <button class="nav-btn" data-tab="faq">
         <span class="nav-icon">❓</span><span>FAQ</span>
       </button>
+      </div>
     </nav>
 
     <div class="header-actions">
@@ -445,6 +450,35 @@
 <script src="js/charts.js"></script>
 <script src="js/app.js"></script>
 <script src="js/features.js"></script>
+
+<script>
+// Hamburger menu
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const navItems = document.getElementById('navItems');
+if (hamburgerBtn && navItems) {
+  hamburgerBtn.addEventListener('click', () => {
+    const open = navItems.classList.toggle('open');
+    hamburgerBtn.classList.toggle('open', open);
+    hamburgerBtn.setAttribute('aria-expanded', open);
+  });
+  // Close menu when a nav item is clicked
+  navItems.querySelectorAll('.nav-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      navItems.classList.remove('open');
+      hamburgerBtn.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded', false);
+    });
+  });
+  // Close on outside click
+  document.addEventListener('click', (e) => {
+    if (!hamburgerBtn.contains(e.target) && !navItems.contains(e.target)) {
+      navItems.classList.remove('open');
+      hamburgerBtn.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded', false);
+    }
+  });
+}
+</script>
 
 </body>
 </html>
