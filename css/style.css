@@ -90,6 +90,7 @@ body {
   display: flex; align-items: center; gap: .15rem;
   flex: 1; overflow-x: auto; scrollbar-width: none;
   position: relative;
+  overflow: visible;
 }
 .nav::-webkit-scrollbar { display: none; }
 .hamburger { display: none; }
@@ -405,6 +406,7 @@ a:hover { text-decoration: underline; }
 }
 @media (max-width: 768px) {
   .recommender-wrap { grid-template-columns: 1fr; }
+  .nav { overflow: visible; }
 
   /* Hamburger button */
   .hamburger {
