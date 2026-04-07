@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-07T05:52:26.609791+00:00",
+  "lastUpdated": "2026-04-07T05:58:51.687879+00:00",
   "history": [
     {
       "date": "2026-04-07",
@@ -14,18 +14,10 @@
         },
         {
           "modelId": "mammotion-luba2-5000x",
-          "shop": "greentools.be",
-          "price": 3420.0,
-          "url": "https://www.greentools.be/mammotion-luba-2-awd-5000x/",
-          "inStock": true
-        },
-        {
-          "modelId": "mammotion-luba2-5000x",
           "shop": "hdstuinmachines.nl",
-          "price": 2499,
-          "url": "https://www.hdstuinmachines.nl/mammotion-luba-2-awd-5000x",
-          "inStock": true,
-          "note": "cached (fetch failed)"
+          "price": 5000.0,
+          "url": "https://www.hdstuinmachines.nl/mammotion-luba-2-awd-5000x/",
+          "inStock": true
         },
         {
           "modelId": "husqvarna-435x-nera",
