@@ -61,11 +61,10 @@ TARGETS = [
         "shop": "greentools.be",
         "url": "https://www.greentools.be/mammotion-luba-2-awd-5000x/",
         "selectors": [
-            ".price",
-            ".product-price",
-            ".woocommerce-Price-amount",
-            "[class*='price']"
-        ]
+            ".product-promo-price",
+            ".product-price:not(.strikethrough)",
+        ],
+        "min_price": 1000,  # accessoires/bundles op pagina, product zelf >€1000
     },
     {
         "modelId": "mammotion-luba2-5000x",
@@ -115,7 +114,7 @@ def fetch_page(url: str) -> str | None:
     return None
 
 
-def extract_price(html: str, selectors: list[str]) -> float | None:
+def extract_price(html: str, selectors: list[str], min_price: float = 500) -> float | None:
     """Try multiple CSS selectors to extract a price from HTML."""
     soup = BeautifulSoup(html, "html.parser")
 
@@ -123,9 +122,13 @@ def extract_price(html: str, selectors: list[str]) -> float | None:
         try:
             els = soup.select(sel)
             for el in els:
+                # Skip strikethrough/old prices
+                classes = " ".join(el.get("class", []))
+                if "strikethrough" in classes or "old" in classes or "was" in classes:
+                    continue
                 text = el.get_text(strip=True)
                 price = parse_price(text)
-                if price and 500 < price < 10000:  # sanity check
+                if price and min_price < price < 10000:  # sanity check
                     return price
         except Exception:
             continue
@@ -134,7 +137,7 @@ def extract_price(html: str, selectors: list[str]) -> float | None:
     matches = re.findall(r'[€\$]?\s*(\d{1,2}[.,]\d{3}(?:[.,]\d{2})?|\d{3,5}(?:[.,]\d{2})?)\s*(?:,-|\.00)?', html)
     for m in matches:
         price = parse_price(m)
-        if price and 1000 < price < 8000:
+        if price and min_price < price < 8000:
             return price
 
     return None
@@ -227,7 +230,7 @@ def main():
                     break
             continue
 
-        price = extract_price(html, target["selectors"])
+        price = extract_price(html, target["selectors"], target.get("min_price", 500))
         if price is None:
             log.warning(f"  → Could not extract price from {url}")
             errors.append(f"{shop}/{model_id}: price extraction failed")
