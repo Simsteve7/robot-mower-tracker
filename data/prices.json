@@ -1,43 +1,169 @@
 {
-  "lastUpdated": "2026-04-07T00:00:00Z",
+  "lastUpdated": "2026-04-07T05:37:46.656975+00:00",
   "history": [
     {
       "date": "2026-04-07",
       "entries": [
-        { "modelId": "mammotion-luba2-5000x", "shop": "detuinmachine.nl", "price": 2999, "url": "https://www.detuinmachine.nl/mammotion-luba-2-awd-5000x", "inStock": true },
-        { "modelId": "mammotion-luba2-5000x", "shop": "greentools.be", "price": 2499, "url": "https://www.greentools.be/mammotion-luba-2-awd-5000x", "inStock": true },
-        { "modelId": "mammotion-luba2-5000x", "shop": "hdstuinmachines.nl", "price": 2499, "url": "https://www.hdstuinmachines.nl/mammotion-luba-2-awd-5000x", "inStock": true },
-        { "modelId": "husqvarna-435x-nera", "shop": "detuinmachine.nl", "price": 4138, "url": "https://www.detuinmachine.nl/husqvarna-automower-435x-awd-nera", "inStock": true },
-        { "modelId": "husqvarna-435x-nera", "shop": "kerstensvoeten.com", "price": 4175, "url": "https://www.kerstensvoeten.com/husqvarna-automower-435x-awd-nera", "inStock": true },
-        { "modelId": "kress-kr174e-rtkn", "shop": "kress.com", "price": 3599, "url": "https://www.kress.com/kr174e-rtkn", "inStock": true },
-        { "modelId": "stiga-a3000", "shop": "stiga.com", "price": 3200, "url": "https://www.stiga.com/a-3000", "inStock": true },
-        { "modelId": "segway-navimow-x330e", "shop": "segway.com", "price": 3799, "url": "https://www.segway.com/navimow-x330e", "inStock": true }
+        {
+          "modelId": "mammotion-luba2-5000x",
+          "shop": "detuinmachine.nl",
+          "price": 2999,
+          "url": "https://www.detuinmachine.nl/mammotion-luba-2-awd-5000x",
+          "inStock": true,
+          "note": "cached (fetch failed)"
+        },
+        {
+          "modelId": "mammotion-luba2-5000x",
+          "shop": "greentools.be",
+          "price": 717.0,
+          "url": "https://www.greentools.be/mammotion-luba-2-awd-5000x/",
+          "inStock": true
+        },
+        {
+          "modelId": "mammotion-luba2-5000x",
+          "shop": "hdstuinmachines.nl",
+          "price": 2499,
+          "url": "https://www.hdstuinmachines.nl/mammotion-luba-2-awd-5000x",
+          "inStock": true,
+          "note": "cached (fetch failed)"
+        },
+        {
+          "modelId": "husqvarna-435x-nera",
+          "shop": "detuinmachine.nl",
+          "price": 2476.0,
+          "url": "https://www.detuinmachine.nl/husqvarna-automower-435x-awd-nera/",
+          "inStock": true
+        },
+        {
+          "modelId": "husqvarna-435x-nera",
+          "shop": "kerstensvoeten.com",
+          "price": 4175,
+          "url": "https://www.kerstensvoeten.com/husqvarna-automower-435x-awd-nera",
+          "inStock": true,
+          "note": "cached (fetch failed)"
+        }
       ]
     },
     {
       "date": "2026-03-15",
       "entries": [
-        { "modelId": "mammotion-luba2-5000x", "shop": "detuinmachine.nl", "price": 2999, "url": "https://www.detuinmachine.nl/mammotion-luba-2-awd-5000x", "inStock": true },
-        { "modelId": "mammotion-luba2-5000x", "shop": "greentools.be", "price": 2699, "url": "https://www.greentools.be/mammotion-luba-2-awd-5000x", "inStock": true },
-        { "modelId": "mammotion-luba2-5000x", "shop": "hdstuinmachines.nl", "price": 2699, "url": "https://www.hdstuinmachines.nl/mammotion-luba-2-awd-5000x", "inStock": true },
-        { "modelId": "husqvarna-435x-nera", "shop": "detuinmachine.nl", "price": 4250, "url": "https://www.detuinmachine.nl/husqvarna-automower-435x-awd-nera", "inStock": true },
-        { "modelId": "husqvarna-435x-nera", "shop": "kerstensvoeten.com", "price": 4175, "url": "https://www.kerstensvoeten.com/husqvarna-automower-435x-awd-nera", "inStock": true },
-        { "modelId": "kress-kr174e-rtkn", "shop": "kress.com", "price": 3599, "url": "https://www.kress.com/kr174e-rtkn", "inStock": true },
-        { "modelId": "stiga-a3000", "shop": "stiga.com", "price": 3499, "url": "https://www.stiga.com/a-3000", "inStock": true },
-        { "modelId": "segway-navimow-x330e", "shop": "segway.com", "price": 3799, "url": "https://www.segway.com/navimow-x330e", "inStock": true }
+        {
+          "modelId": "mammotion-luba2-5000x",
+          "shop": "detuinmachine.nl",
+          "price": 2999,
+          "url": "https://www.detuinmachine.nl/mammotion-luba-2-awd-5000x",
+          "inStock": true
+        },
+        {
+          "modelId": "mammotion-luba2-5000x",
+          "shop": "greentools.be",
+          "price": 2699,
+          "url": "https://www.greentools.be/mammotion-luba-2-awd-5000x",
+          "inStock": true
+        },
+        {
+          "modelId": "mammotion-luba2-5000x",
+          "shop": "hdstuinmachines.nl",
+          "price": 2699,
+          "url": "https://www.hdstuinmachines.nl/mammotion-luba-2-awd-5000x",
+          "inStock": true
+        },
+        {
+          "modelId": "husqvarna-435x-nera",
+          "shop": "detuinmachine.nl",
+          "price": 4250,
+          "url": "https://www.detuinmachine.nl/husqvarna-automower-435x-awd-nera",
+          "inStock": true
+        },
+        {
+          "modelId": "husqvarna-435x-nera",
+          "shop": "kerstensvoeten.com",
+          "price": 4175,
+          "url": "https://www.kerstensvoeten.com/husqvarna-automower-435x-awd-nera",
+          "inStock": true
+        },
+        {
+          "modelId": "kress-kr174e-rtkn",
+          "shop": "kress.com",
+          "price": 3599,
+          "url": "https://www.kress.com/kr174e-rtkn",
+          "inStock": true
+        },
+        {
+          "modelId": "stiga-a3000",
+          "shop": "stiga.com",
+          "price": 3499,
+          "url": "https://www.stiga.com/a-3000",
+          "inStock": true
+        },
+        {
+          "modelId": "segway-navimow-x330e",
+          "shop": "segway.com",
+          "price": 3799,
+          "url": "https://www.segway.com/navimow-x330e",
+          "inStock": true
+        }
       ]
     },
     {
       "date": "2026-02-01",
       "entries": [
-        { "modelId": "mammotion-luba2-5000x", "shop": "detuinmachine.nl", "price": 3199, "url": "https://www.detuinmachine.nl/mammotion-luba-2-awd-5000x", "inStock": true },
-        { "modelId": "mammotion-luba2-5000x", "shop": "greentools.be", "price": 2999, "url": "https://www.greentools.be/mammotion-luba-2-awd-5000x", "inStock": true },
-        { "modelId": "mammotion-luba2-5000x", "shop": "hdstuinmachines.nl", "price": 2999, "url": "https://www.hdstuinmachines.nl/mammotion-luba-2-awd-5000x", "inStock": true },
-        { "modelId": "husqvarna-435x-nera", "shop": "detuinmachine.nl", "price": 4499, "url": "https://www.detuinmachine.nl/husqvarna-automower-435x-awd-nera", "inStock": true },
-        { "modelId": "husqvarna-435x-nera", "shop": "kerstensvoeten.com", "price": 4399, "url": "https://www.kerstensvoeten.com/husqvarna-automower-435x-awd-nera", "inStock": true },
-        { "modelId": "kress-kr174e-rtkn", "shop": "kress.com", "price": 3899, "url": "https://www.kress.com/kr174e-rtkn", "inStock": true },
-        { "modelId": "stiga-a3000", "shop": "stiga.com", "price": 3999, "url": "https://www.stiga.com/a-3000", "inStock": true },
-        { "modelId": "segway-navimow-x330e", "shop": "segway.com", "price": 3799, "url": "https://www.segway.com/navimow-x330e", "inStock": true }
+        {
+          "modelId": "mammotion-luba2-5000x",
+          "shop": "detuinmachine.nl",
+          "price": 3199,
+          "url": "https://www.detuinmachine.nl/mammotion-luba-2-awd-5000x",
+          "inStock": true
+        },
+        {
+          "modelId": "mammotion-luba2-5000x",
+          "shop": "greentools.be",
+          "price": 2999,
+          "url": "https://www.greentools.be/mammotion-luba-2-awd-5000x",
+          "inStock": true
+        },
+        {
+          "modelId": "mammotion-luba2-5000x",
+          "shop": "hdstuinmachines.nl",
+          "price": 2999,
+          "url": "https://www.hdstuinmachines.nl/mammotion-luba-2-awd-5000x",
+          "inStock": true
+        },
+        {
+          "modelId": "husqvarna-435x-nera",
+          "shop": "detuinmachine.nl",
+          "price": 4499,
+          "url": "https://www.detuinmachine.nl/husqvarna-automower-435x-awd-nera",
+          "inStock": true
+        },
+        {
+          "modelId": "husqvarna-435x-nera",
+          "shop": "kerstensvoeten.com",
+          "price": 4399,
+          "url": "https://www.kerstensvoeten.com/husqvarna-automower-435x-awd-nera",
+          "inStock": true
+        },
+        {
+          "modelId": "kress-kr174e-rtkn",
+          "shop": "kress.com",
+          "price": 3899,
+          "url": "https://www.kress.com/kr174e-rtkn",
+          "inStock": true
+        },
+        {
+          "modelId": "stiga-a3000",
+          "shop": "stiga.com",
+          "price": 3999,
+          "url": "https://www.stiga.com/a-3000",
+          "inStock": true
+        },
+        {
+          "modelId": "segway-navimow-x330e",
+          "shop": "segway.com",
+          "price": 3799,
+          "url": "https://www.segway.com/navimow-x330e",
+          "inStock": true
+        }
       ]
     }
   ],

@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-07T00:00:00Z",
+  "lastUpdated": "2026-04-07T05:37:54.965251+00:00",
   "listings": [
     {
       "id": "marktplaats-luba2-5000x-pro",
@@ -15,7 +15,7 @@
       "dateExpires": null,
       "warranty": null,
       "notes": "Showroommodel, zo goed als nieuw. Dealer verkoop.",
-      "active": true,
+      "active": false,
       "savingsVsNew": 900
     },
     {
@@ -32,7 +32,7 @@
       "dateExpires": null,
       "warranty": "2 jaar resterende fabrieksgarantie",
       "notes": "Model 2025 met 2 jaar garantie. Goede staat.",
-      "active": true,
+      "active": false,
       "savingsVsNew": 599
     }
   ]
