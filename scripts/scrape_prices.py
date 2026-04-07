@@ -278,11 +278,12 @@ def main():
     save_prices(prices_data)
 
     if errors:
-        log.warning(f"Completed with {len(errors)} errors: {errors}")
+        log.warning(f"Completed with {len(errors)} errors (non-fatal): {errors}")
     else:
         log.info(f"Completed successfully. {len(new_entries)} price entries scraped.")
 
-    return 0 if not errors else 1
+    # Always exit 0 — fetch/parse failures are non-fatal (we keep last known prices)
+    return 0
 
 
 if __name__ == "__main__":
