@@ -405,6 +405,58 @@ a:hover { text-decoration: underline; }
 }
 @media (max-width: 768px) {
   .recommender-wrap { grid-template-columns: 1fr; }
+
+  /* Hamburger button */
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+  }
+  .hamburger span {
+    display: block;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: all .25s ease;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+  /* Hide desktop nav items, show as dropdown */
+  .nav-items {
+    display: none;
+    position: fixed;
+    top: 56px;
+    left: 0;
+    right: 0;
+    background: var(--bg-2);
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    padding: .5rem 0;
+    z-index: 9999;
+    box-shadow: 0 8px 24px rgba(0,0,0,.4);
+    max-height: calc(100vh - 56px);
+    overflow-y: auto;
+  }
+  .nav-items.open {
+    display: flex;
+  }
+  .nav-btn {
+    width: 100%;
+    justify-content: flex-start;
+    padding: .75rem 1.25rem;
+    border-radius: 0;
+    gap: .75rem;
+  }
+  .nav-btn span { display: inline; }
 }
 
 .recommender-form {
@@ -594,58 +646,6 @@ a:hover { text-decoration: underline; }
   .countdown { display: none; }
   .cards-grid { grid-template-columns: 1fr; }
   .secondhand-grid { grid-template-columns: 1fr; }
-
-  /* Hamburger button */
-  .hamburger {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 28px;
-    height: 20px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    flex-shrink: 0;
-  }
-  .hamburger span {
-    display: block;
-    height: 2px;
-    background: var(--text);
-    border-radius: 2px;
-    transition: all .25s ease;
-  }
-  .hamburger.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
-  .hamburger.open span:nth-child(2) { opacity: 0; }
-  .hamburger.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
-
-  /* Nav items as dropdown */
-  .nav-items {
-    display: none;
-    position: fixed;
-    top: 56px;
-    left: 0;
-    right: 0;
-    background: var(--bg-2);
-    border-bottom: 1px solid var(--border);
-    flex-direction: column;
-    padding: .5rem 0;
-    z-index: 200;
-    box-shadow: 0 8px 24px rgba(0,0,0,.25);
-    max-height: calc(100vh - 56px);
-    overflow-y: auto;
-  }
-  .nav-items.open {
-    display: flex;
-  }
-  .nav-btn {
-    width: 100%;
-    justify-content: flex-start;
-    padding: .75rem 1.25rem;
-    border-radius: 0;
-    gap: .75rem;
-  }
-  .nav-btn span { display: inline; }
 }
 
 /* ── Utility ─────────────────────────────────────────────── */
