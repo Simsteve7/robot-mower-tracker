@@ -81,10 +81,10 @@ TARGETS = [
         "shop": "detuinmachine.nl",
         "url": "https://www.detuinmachine.nl/husqvarna-automower-435x-awd-nera/",
         "selectors": [
-            ".product-price .price",
-            ".price--withoutTax",
-            "[data-product-price]"
-        ]
+            ".price",
+            ".woocommerce-Price-amount",
+        ],
+        "min_price": 2000,
     },
     {
         "modelId": "husqvarna-435x-nera",
@@ -143,13 +143,8 @@ def extract_price(html: str, selectors: list[str], min_price: float = 500) -> fl
         except Exception:
             continue
 
-    # Fallback: regex search for Euro prices in reasonable range
-    matches = re.findall(r'[€\$]?\s*(\d{1,2}[.,]\d{3}(?:[.,]\d{2})?|\d{3,5}(?:[.,]\d{2})?)\s*(?:,-|\.00)?', html)
-    for m in matches:
-        price = parse_price(m)
-        if price and min_price < price < 8000:
-            return price
-
+    # Regex fallback disabled — causes false positives from page content
+    # Only use explicit CSS selectors per target
     return None
 
 
