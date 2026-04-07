@@ -131,6 +131,33 @@
       "color": "#ef4444",
       "image": null,
       "shopUrls": {}
+    },
+    {
+      "id": "segway-navimow-x450",
+      "name": "Segway Navimow X450",
+      "brand": "Segway",
+      "slug": "segway-x4",
+      "badge": "nieuw",
+      "badgeLabel": "Nieuw",
+      "maxArea": 5000,
+      "maxSlope": 84,
+      "driveType": "AWD 4WD",
+      "wireRequired": false,
+      "connectivity": "4G / Wi-Fi",
+      "connectivityFree": "Inbegrepen",
+      "connectivityFreeYears": 99,
+      "installation": "Zelf installeren",
+      "selfInstall": true,
+      "dealerInstall": false,
+      "priceNew": 3199,
+      "priceSecondhand": null,
+      "targetBudget": 3000,
+      "withinBudget": false,
+      "color": "#ef4444",
+      "image": null,
+      "shopUrls": {
+        "navimow.segway.com": "https://navimow.segway.com/products/navimow-x4-robot-lawn-mower"
+      }
     }
   ]
 }
