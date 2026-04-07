@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-07T06:13:49.711931+00:00",
+  "lastUpdated": "2026-04-07T07:24:53.440198+00:00",
   "history": [
     {
       "date": "2026-04-07",
@@ -25,12 +25,12 @@
           "price": 5000.0,
           "url": "https://www.hdstuinmachines.nl/mammotion-luba-2-awd-5000x/",
           "inStock": true,
-          "note": "cached (fetch failed)"
+          "note": "cached (extraction failed)"
         },
         {
           "modelId": "husqvarna-435x-nera",
           "shop": "detuinmachine.nl",
-          "price": 2476.0,
+          "price": 5999.0,
           "url": "https://www.detuinmachine.nl/husqvarna-automower-435x-awd-nera/",
           "inStock": true
         },
