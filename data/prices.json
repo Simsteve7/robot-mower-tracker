@@ -1,6 +1,56 @@
 {
-  "lastUpdated": "2026-04-22T07:37:54.966352+00:00",
+  "lastUpdated": "2026-04-23T07:38:19.667911+00:00",
   "history": [
+    {
+      "date": "2026-04-23",
+      "entries": [
+        {
+          "modelId": "mammotion-luba2-5000x",
+          "shop": "greentools.be",
+          "price": 2499.0,
+          "url": "https://www.greentools.be/nl/2-webshop/detail/7130-robotmaaier-mammotion-luba2-awd-5000-x",
+          "inStock": true
+        },
+        {
+          "modelId": "mammotion-luba2-5000x",
+          "shop": "detuinmachine.nl",
+          "price": 2999,
+          "url": "https://www.detuinmachine.nl/mammotion-luba-2-awd-5000x",
+          "inStock": true,
+          "note": "cached (fetch failed)"
+        },
+        {
+          "modelId": "mammotion-luba2-5000x",
+          "shop": "hdstuinmachines.nl",
+          "price": 5000.0,
+          "url": "https://www.hdstuinmachines.nl/mammotion-luba-2-awd-5000x/",
+          "inStock": true,
+          "note": "cached (fetch failed)"
+        },
+        {
+          "modelId": "husqvarna-435x-nera",
+          "shop": "detuinmachine.nl",
+          "price": 2714.0,
+          "url": "https://www.detuinmachine.nl/husqvarna-automower-435x-awd-nera/",
+          "inStock": true
+        },
+        {
+          "modelId": "husqvarna-435x-nera",
+          "shop": "kerstensvoeten.com",
+          "price": 4175,
+          "url": "https://www.kerstensvoeten.com/husqvarna-automower-435x-awd-nera",
+          "inStock": true,
+          "note": "cached (fetch failed)"
+        },
+        {
+          "modelId": "mammotion-luba3-5000",
+          "shop": "greentools.be",
+          "price": 3199.0,
+          "url": "https://www.greentools.be/nl/2-webshop/detail/7158-robotmaaier-mammotion-luba3-awd-5000",
+          "inStock": true
+        }
+      ]
+    },
     {
       "date": "2026-04-22",
       "entries": [
